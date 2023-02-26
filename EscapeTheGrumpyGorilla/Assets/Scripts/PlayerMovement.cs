@@ -6,6 +6,9 @@ public class PlayerMovement : MonoBehaviour
 {
   public CharacterController controller;
   public float speed = 12f;
+  bool hasBanana;
+  public bool peel { get; private set; }
+  public GameObject bananaHud;
 
     // Update is called once per frame
     void Update()
@@ -15,5 +18,25 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 move = transform.right * x + transform.forward * z;
         controller.Move(move * speed * Time.deltaTime);
+
+        if(hasBanana && Input.GetKeyDown(KeyCode.E))
+        {
+            speed = 24f;
+            hasBanana = false;
+            Invoke(nameof(SlowDown), 8f);
+            peel = true;
+        }
+    }
+    public void GetBanana()
+    {
+        hasBanana = true;
+        bananaHud.SetActive(true);
+    }
+    private void SlowDown()
+    {
+        speed = 12f;
+    }
+    public void TEST(){
+        bananaHud.SetActive(false);
     }
 }
