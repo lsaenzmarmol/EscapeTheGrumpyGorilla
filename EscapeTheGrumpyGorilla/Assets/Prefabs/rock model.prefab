@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 3284219577815646739}
   - component: {fileID: 1890456155333512630}
   - component: {fileID: 4456532363224693116}
-  - component: {fileID: 1071695523139118392}
-  m_Layer: 0
+  - component: {fileID: -8532403662292167539}
+  - component: {fileID: 2010287291874333097}
+  m_Layer: 6
   m_Name: rock model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,8 +85,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1071695523139118392
-BoxCollider:
+--- !u!114 &-8532403662292167539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2799045316608104617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
+--- !u!136 &2010287291874333097
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,6 +111,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 234.67212, y: 155.49507, z: 200.71016}
-  m_Center: {x: 0.5341768, y: 1.3602346, z: 1.6848326}
+  m_Radius: 124.84305
+  m_Height: 266.78635
+  m_Direction: 1
+  m_Center: {x: -1.5408993, y: 0.001168251, z: -10.316181}

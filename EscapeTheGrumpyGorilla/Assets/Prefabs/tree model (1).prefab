@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4340027657553418323}
   - component: {fileID: 6998827954072214353}
   - component: {fileID: 750966648423762860}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: trunk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 5030612742711733079}
   - component: {fileID: 2084101495715375633}
   - component: {fileID: 5604561944989454032}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: leaves
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6800303167411955876}
   - component: {fileID: 5872607964511115593}
-  m_Layer: 0
+  - component: {fileID: 8241308267091573574}
+  m_Layer: 6
   m_Name: tree model (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -214,3 +215,19 @@ CapsuleCollider:
   m_Height: 349.91788
   m_Direction: 1
   m_Center: {x: 1.6503096, y: 147.59709, z: 2.1258354}
+--- !u!114 &8241308267091573574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6130620783820403230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
