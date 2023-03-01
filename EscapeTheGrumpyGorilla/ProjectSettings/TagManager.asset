@@ -6,6 +6,7 @@ TagManager:
   tags:
   - New tag
   - Banana
+  - Peeled
   layers:
   - Default
   - TransparentFX
@@ -22,8 +23,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Player
   - 
   - 
   - 
