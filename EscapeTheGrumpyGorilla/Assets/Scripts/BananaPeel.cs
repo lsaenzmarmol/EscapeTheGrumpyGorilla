@@ -12,10 +12,10 @@ public class BananaPeel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.R) && pm.peel && !test)
+        if(Input.GetKeyDown(KeyCode.R) && pm.peel)
         {
-            test = true;
-            pm.TEST();
+            pm.SetPeel(true);
+            pm.HideBanana();
             GameObject ball = Instantiate(projectile, transform.position,  transform.rotation);
             ball.GetComponent<Rigidbody>().AddRelativeForce(launchVelocity * Vector3.forward + Vector3.up * 100);
         }

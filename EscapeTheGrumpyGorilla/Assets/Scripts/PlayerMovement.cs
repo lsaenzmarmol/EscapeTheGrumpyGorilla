@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
   bool hasBanana;
   public bool peel { get; private set; }
   public GameObject bananaHud;
+  public LayerMask gorillaLayer;
 
     // Update is called once per frame
     void Update()
@@ -18,14 +19,9 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 move = transform.right * x + transform.forward * z;
         controller.Move(move * speed * Time.deltaTime);
+        if(!PauseMenu.isPaused)
+            CheckInputs();
 
-        if(hasBanana && Input.GetKeyDown(KeyCode.E))
-        {
-            speed = 24f;
-            hasBanana = false;
-            Invoke(nameof(SlowDown), 8f);
-            peel = true;
-        }
     }
     public void GetBanana()
     {
@@ -36,7 +32,27 @@ public class PlayerMovement : MonoBehaviour
     {
         speed = 12f;
     }
-    public void TEST(){
+    public void HideBanana(){
         bananaHud.SetActive(false);
+    }
+
+    private void CheckInputs()
+    {
+        if(hasBanana && Input.GetKeyDown(KeyCode.E))
+        {
+            speed = 24f;
+            hasBanana = false;
+            Invoke(nameof(SlowDown), 8f);
+            peel = true;
+        }
+
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            //raycast
+        }
+    }
+    public void SetPeel(bool b)
+    {
+        peel = b;
     }
 }
