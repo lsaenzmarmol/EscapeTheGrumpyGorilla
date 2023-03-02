@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
   public CharacterController controller;
+  public AudioManager am;
   public float speed = 12f;
   public bool hasBanana;
   public bool peel { get; private set; }

@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class GorillaController : MonoBehaviour
 {
     public NavMeshAgent agent;
+    public AudioManager am;
     public GameObject playerObj, loseObj;
     public Transform[] protectPositions;
     int posSpot, timer, spinTimer, DazedTimer;
@@ -101,6 +102,7 @@ public class GorillaController : MonoBehaviour
         }
         if(rillaState == BehaviorState.Chase)
         {
+            am.PlayExplosion();
             agent.speed = chaseSpeed;
             agent.SetDestination(playerObj.transform.position);
             if(playerDistance > 20)
@@ -114,6 +116,7 @@ public class GorillaController : MonoBehaviour
     private void OnCollisionEnter(Collision other) {
         if(other.gameObject.tag == "Peeled")
         {
+            am.PlaySlip();
             Debug.Log("GotPeeled");
             spinTimer = 0;
             rillaState = BehaviorState.Spin;

@@ -9,6 +9,7 @@ public class BananaPeel : MonoBehaviour
     public float launchVelocity = 200f;
     public PlayerMovement pm;
     bool test;
+    public AudioManager am;
 
     // Update is called once per frame
     void Update()
@@ -20,6 +21,7 @@ public class BananaPeel : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.R) && pm.peel)
         {
+            am.PlayToss();
             pm.SetPeel(true);
             pm.HideBanana();
             GameObject ball = Instantiate(projectile, transform.position,  transform.rotation);
@@ -27,6 +29,7 @@ public class BananaPeel : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.R) && pm.hasBanana && !pm.peel)
         {
+            am.PlayToss();
             pm.HideBanana();
             GameObject ball = Instantiate(normalNanaObj, transform.position,  transform.rotation);
             ball.GetComponent<Rigidbody>().AddRelativeForce(launchVelocity * Vector3.forward + Vector3.up * 50);
