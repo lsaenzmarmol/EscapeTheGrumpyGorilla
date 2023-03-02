@@ -5,7 +5,7 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pausePanelObj;
-    public static bool isPaused;
+    public static bool isPaused, gameOver;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,5 +39,9 @@ public class PauseMenu : MonoBehaviour
         pausePanelObj.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
+    }
+    public static void GameOver()
+    {
+        gameOver = true;
     }
 }

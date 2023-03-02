@@ -6,10 +6,10 @@ using UnityEngine.AI;
 public class GorillaController : MonoBehaviour
 {
     public NavMeshAgent agent;
-    public GameObject playerObj;
+    public GameObject playerObj, loseObj;
     public Transform[] protectPositions;
     int posSpot, timer, spinTimer, DazedTimer;
-    float nanaDistance, playerDistance;
+    public float nanaDistance, playerDistance;
     public float normalSpeed = 3.5f, chaseSpeed = 7f;
 
     enum BehaviorState {Patrol, Spin, Protect, Chase, Dazed};
@@ -34,17 +34,25 @@ public class GorillaController : MonoBehaviour
 
     public void ComputeState()
     {
+        //check distances
+        GameObject nanaPeel = GameObject.FindGameObjectWithTag("Banana");
+        if(nanaPeel!=null)
+            nanaDistance = Vector3.Distance(nanaPeel.transform.position, transform.position); 
+        if(playerObj != null)
+            playerDistance = Vector3.Distance(playerObj.transform.position, transform.position);
+        //check spin state
         if(rillaState == BehaviorState.Spin)
         {
             spinTimer++;
 
             if(spinTimer > 2400)
             {
-                //rillaState = BehaviorState.Protect;
-                return;
+                rillaState = BehaviorState.Protect;
             }
             //dont move, just spin for a second
         }
+
+        //check dazed state
         if(rillaState == BehaviorState.Dazed)
         {
             DazedTimer++;
@@ -52,31 +60,13 @@ public class GorillaController : MonoBehaviour
             if(DazedTimer > 4800)
             {
                 rillaState = BehaviorState.Protect;
-                return;
             }
-            
         }
 
-        playerDistance = Vector3.Distance(playerObj.transform.position, transform.position);
-        if(playerDistance < 20)
-        {
-            //rillaState = BehaviorState.Chase;
-        }
-        else 
-        {
-            //rillaState = BehaviorState.Protect;
-            agent.speed = normalSpeed;
-        }
-        //check the distance to the patrol object
-        GameObject nanaPeel = GameObject.FindGameObjectWithTag("Banana");
-        if(nanaPeel!=null)
-            nanaDistance = Vector3.Distance(nanaPeel.transform.position, transform.position);
         
 
-        if(nanaDistance < 30)
-        {
-            rillaState = BehaviorState.Patrol;
-        }
+        //check the distance to the patrol object
+
         if(rillaState == BehaviorState.Patrol)
         {
             if(nanaPeel!=null)
@@ -84,7 +74,28 @@ public class GorillaController : MonoBehaviour
         }
 
         if(rillaState == BehaviorState.Protect)
+        {        
+
+        agent.speed = normalSpeed;
+        //other state checks   
+        //check chase        
+        if(playerDistance < 20)
         {
+            rillaState = BehaviorState.Chase;
+        }
+        else 
+        {
+            agent.speed = normalSpeed;
+        }
+        if(nanaDistance < 30)
+        {
+            rillaState = BehaviorState.Patrol;
+        }
+        playerDistance = Vector3.Distance(playerObj.transform.position, transform.position);
+        if(playerDistance < 20)
+        {
+            rillaState = BehaviorState.Chase;
+        }
             ComputeProtect();
             agent.SetDestination(protectPositions[posSpot].position);
         }
@@ -115,6 +126,11 @@ public class GorillaController : MonoBehaviour
             rillaState = BehaviorState.Dazed;
             nanaDistance = 50;
             Destroy(other.gameObject);
+        }
+        if(other.gameObject.tag == "Player" && !PauseMenu.gameOver)
+        {
+            PauseMenu.GameOver();
+            loseObj.SetActive(true);
         }
     }
     private void ComputeProtect()
