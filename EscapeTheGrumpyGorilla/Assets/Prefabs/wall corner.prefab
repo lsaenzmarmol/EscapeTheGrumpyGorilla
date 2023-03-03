@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 7229428435040412622}
   - component: {fileID: 6051656261370260587}
   - component: {fileID: 8367470436223473825}
-  m_Layer: 0
+  - component: {fileID: 7791044088811674449}
+  m_Layer: 7
   m_Name: wall corner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 8007336878451816820}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 10.435011, y: 2.09, z: -13.37}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_LocalScale: {x: 0.016452, y: 0.016452, z: 0.016452}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -83,3 +84,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!135 &7791044088811674449
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8007336878451816820}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 221.74858
+  m_Center: {x: 16.87865, y: 47.341393, z: 49.496147}
