@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - New tag
+  - Banana
+  - Peeled
   layers:
   - Default
   - TransparentFX
@@ -11,6 +14,7 @@ TagManager:
   - 
   - Water
   - UI
+  - Banana
   - Environment
   - 
   - 
@@ -19,8 +23,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Player
   - 
   - 
   - 
