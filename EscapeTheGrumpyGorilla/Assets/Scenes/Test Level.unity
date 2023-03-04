@@ -3549,16 +3549,20 @@ PrefabInstance:
         Code - Miles Turner
 
 
-        Press P to continue'
+        Press Esc key to continue'
       objectReference: {fileID: 0}
     - target: {fileID: 3039573498849728282, guid: 1067f9e2abfabcb4a8951a33eb7c17eb, type: 3}
       propertyPath: m_fontSize
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3039573498849728282, guid: 1067f9e2abfabcb4a8951a33eb7c17eb, type: 3}
       propertyPath: m_fontSizeBase
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 3039573498849728282, guid: 1067f9e2abfabcb4a8951a33eb7c17eb, type: 3}
+      propertyPath: m_fontColorGradientPreset
+      value: 
+      objectReference: {fileID: 11400000, guid: af613bc777e3583408ab251000f901e9, type: 2}
     - target: {fileID: 6236364868231781170, guid: 1067f9e2abfabcb4a8951a33eb7c17eb, type: 3}
       propertyPath: m_Name
       value: Pause Menu Info
@@ -3597,11 +3601,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7145253783863433094, guid: 1067f9e2abfabcb4a8951a33eb7c17eb, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 404.7129
+      value: 401.8572
       objectReference: {fileID: 0}
     - target: {fileID: 7145253783863433094, guid: 1067f9e2abfabcb4a8951a33eb7c17eb, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 152.268
+      value: 193.6789
       objectReference: {fileID: 0}
     - target: {fileID: 7145253783863433094, guid: 1067f9e2abfabcb4a8951a33eb7c17eb, type: 3}
       propertyPath: m_LocalPosition.x
