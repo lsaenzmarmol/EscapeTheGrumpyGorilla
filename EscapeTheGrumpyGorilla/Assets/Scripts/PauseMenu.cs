@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject pausePanelObj;
+    public GameObject pausePanelObj, camObj;
     public static bool isPaused, gameOver;
+    public AudioManager am;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,12 +21,23 @@ public class PauseMenu : MonoBehaviour
         {
             if(isPaused)
             {
+                am.TurnOnMusic();
                 ResumeGame();
+                
             }
             else 
             {
+                am.TurnOffMusic();
                 PauseGame();
             }
+        }
+        if(gameOver)
+        {
+            if(Input.GetKeyDown(KeyCode.R))
+            {
+                SceneManager.LoadScene(1);
+            }
+            camObj.SetActive(true);
         }
     }
 

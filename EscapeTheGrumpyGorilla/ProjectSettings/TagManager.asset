@@ -8,6 +8,8 @@ TagManager:
   - Banana
   - Peeled
   - Key
+  - Step
+  - Win
   layers:
   - Default
   - TransparentFX
@@ -17,8 +19,8 @@ TagManager:
   - UI
   - Banana
   - Environment
-  - 
-  - 
+  - Step
+  - Gorilla
   - 
   - 
   - 

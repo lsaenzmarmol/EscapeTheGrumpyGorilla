@@ -10,8 +10,11 @@ public class GorillaController : MonoBehaviour
     public GameObject playerObj, loseObj;
     public Transform[] protectPositions;
     int posSpot, timer, spinTimer, DazedTimer;
-    public float nanaDistance, playerDistance;
+    public int playerThreshold, nanaThreshold;
+    float nanaDistance, playerDistance;
     public float normalSpeed = 3.5f, chaseSpeed = 7f;
+
+    public int spinDuration, dazedDuration;
 
     enum BehaviorState {Patrol, Spin, Protect, Chase, Dazed};
     BehaviorState rillaState;
@@ -46,7 +49,7 @@ public class GorillaController : MonoBehaviour
         {
             spinTimer++;
 
-            if(spinTimer > 2400)
+            if(spinTimer > spinDuration)
             {
                 rillaState = BehaviorState.Protect;
             }
@@ -58,7 +61,7 @@ public class GorillaController : MonoBehaviour
         {
             DazedTimer++;
 
-            if(DazedTimer > 4800)
+            if(DazedTimer > dazedDuration)
             {
                 rillaState = BehaviorState.Protect;
             }
@@ -80,7 +83,7 @@ public class GorillaController : MonoBehaviour
         agent.speed = normalSpeed;
         //other state checks   
         //check chase        
-        if(playerDistance < 20)
+        if(playerDistance < playerThreshold)
         {
             rillaState = BehaviorState.Chase;
         }
@@ -88,12 +91,12 @@ public class GorillaController : MonoBehaviour
         {
             agent.speed = normalSpeed;
         }
-        if(nanaDistance < 30)
+        if(nanaDistance < nanaThreshold)
         {
             rillaState = BehaviorState.Patrol;
         }
         playerDistance = Vector3.Distance(playerObj.transform.position, transform.position);
-        if(playerDistance < 20)
+        if(playerDistance < playerThreshold)
         {
             rillaState = BehaviorState.Chase;
         }
@@ -105,7 +108,7 @@ public class GorillaController : MonoBehaviour
             am.PlayExplosion();
             agent.speed = chaseSpeed;
             agent.SetDestination(playerObj.transform.position);
-            if(playerDistance > 20)
+            if(playerDistance > playerThreshold)
             {
                 rillaState = BehaviorState.Protect;
             }

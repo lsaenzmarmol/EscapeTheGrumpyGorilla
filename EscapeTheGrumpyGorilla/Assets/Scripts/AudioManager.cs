@@ -18,10 +18,20 @@ public class AudioManager : MonoBehaviour
     {
         rilla.SetActive(true);
         chill.SetActive(false);
-        speaker.PlayOneShot(explosion, volume);
+        //speaker.PlayOneShot(explosion, volume);
     }
     public void PlayToss()
     {
         speaker.PlayOneShot(toss, volume);
+    }
+    public void TurnOffMusic()
+    {
+        rilla.SetActive(false);
+        chill.SetActive(false);
+    }
+    public void TurnOnMusic()
+    {
+        rilla.SetActive(false);
+        chill.SetActive(true);
     }
 }

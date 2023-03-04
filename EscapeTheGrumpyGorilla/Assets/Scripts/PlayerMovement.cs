@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
   public CharacterController controller;
-  public AudioManager am;
+  
   public float speed = 12f;
   public bool hasBanana;
   public bool peel { get; private set; }
@@ -16,13 +16,19 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float x = Input.GetAxis ("Horizontal");
-        float z = Input.GetAxis ("Vertical");
+        
 
-        Vector3 move = transform.right * x + transform.forward * z;
-        controller.Move(move * speed * Time.deltaTime);
+        
         if(!PauseMenu.isPaused && !PauseMenu.gameOver)
+        {
+            Debug.Log(PauseMenu.gameOver);
             CheckInputs();
+            float x = Input.GetAxis ("Horizontal");
+            float z = Input.GetAxis ("Vertical");
+            Vector3 move = transform.right * x + transform.forward * z;
+            controller.Move(move * speed * Time.deltaTime);
+        }
+            
 
     }
     public void GetBanana()
@@ -56,15 +62,16 @@ public class PlayerMovement : MonoBehaviour
     {
         peel = b;
     }
-    private void OnCollisionEnter(Collision other) {
+    private void OnTriggerEnter(Collider other) {
         if(other.gameObject.tag == "Key")
         {
-            doorObj.SetActive(true);
+            doorObj.SetActive(false);
             Destroy(other.gameObject);
         }
         if(other.gameObject.tag == "Win")
         {
             PauseMenu.GameOver();
+            Debug.Log(PauseMenu.gameOver);
             winObj.SetActive(true);
         }
     }

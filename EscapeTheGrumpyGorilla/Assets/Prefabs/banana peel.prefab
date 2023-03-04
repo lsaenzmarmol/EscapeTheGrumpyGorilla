@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 7864127835040287715}
   - component: {fileID: 6524912172321571910}
   - component: {fileID: 9036985322026135692}
+  - component: {fileID: 63482249155759845}
+  - component: {fileID: 3441977210246854065}
   m_Layer: 6
   m_Name: banana peel
   m_TagString: Peeled
@@ -84,3 +86,32 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!54 &63482249155759845
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7379480269614928217}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &3441977210246854065
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7379480269614928217}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 226.25975, y: 94.03426, z: 199.12897}
+  m_Center: {x: 1.1072464, y: 47.406445, z: -3.5748596}
