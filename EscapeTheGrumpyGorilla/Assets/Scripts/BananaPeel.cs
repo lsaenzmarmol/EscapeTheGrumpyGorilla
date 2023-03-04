@@ -22,7 +22,7 @@ public class BananaPeel : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.R) && pm.peel)
         {
             am.PlayToss();
-            pm.SetPeel(true);
+            pm.SetPeel(false);
             pm.HideBanana();
             GameObject ball = Instantiate(projectile, transform.position,  transform.rotation);
             ball.GetComponent<Rigidbody>().AddRelativeForce((launchVelocity * Vector3.forward) + Vector3.up * 100);

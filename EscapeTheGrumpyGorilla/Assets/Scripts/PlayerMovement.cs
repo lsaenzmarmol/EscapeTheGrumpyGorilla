@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
         
         if(!PauseMenu.isPaused && !PauseMenu.gameOver)
         {
-            Debug.Log(PauseMenu.gameOver);
+            
             CheckInputs();
             float x = Input.GetAxis ("Horizontal");
             float z = Input.GetAxis ("Vertical");
@@ -43,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
     public void HideBanana(){
         normalHud.SetActive(false);
         peeledHud.SetActive(false);
+        hasBanana = false;
     }
 
     private void CheckInputs()
@@ -71,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
         if(other.gameObject.tag == "Win")
         {
             PauseMenu.GameOver();
-            Debug.Log(PauseMenu.gameOver);
+            
             winObj.SetActive(true);
         }
     }

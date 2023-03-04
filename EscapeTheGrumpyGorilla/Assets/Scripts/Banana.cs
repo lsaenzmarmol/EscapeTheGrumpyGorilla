@@ -10,6 +10,14 @@ public class Banana : MonoBehaviour
         pm = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
     }
 
+    private void OnTriggerEnter(Collider other) {
+            if(other.gameObject.tag == "Player")
+            {
+                pm.GetBanana();
+                Destroy(this.gameObject);
+            }
+            Debug.Log("Banana");
+    }
     private void OnCollisionEnter(Collision other) {
             if(other.gameObject.tag == "Player")
             {
@@ -17,8 +25,5 @@ public class Banana : MonoBehaviour
                 Destroy(this.gameObject);
             }
             Debug.Log("Banana");
-            
-            
-        
     }
 }

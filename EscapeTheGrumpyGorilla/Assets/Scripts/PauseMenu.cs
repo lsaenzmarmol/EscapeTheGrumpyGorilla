@@ -35,7 +35,7 @@ public class PauseMenu : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.R))
             {
-                SceneManager.LoadScene(1);
+                SceneManager.LoadScene(0);
             }
             camObj.SetActive(true);
         }
