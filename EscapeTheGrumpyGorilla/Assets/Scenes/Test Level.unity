@@ -659,7 +659,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 253349532}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.7, y: 1.04, z: 16.96}
+  m_LocalPosition: {x: -16.7, y: 1.04, z: -27.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -832,7 +832,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 527344165}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.190001, y: 1.38, z: 4.43}
+  m_LocalPosition: {x: 7.04, y: 1.38, z: -23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1615,6 +1615,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rilla
       objectReference: {fileID: 0}
+    - target: {fileID: 1682203309136837693, guid: 638824706680a1a4b875f37eff53e999, type: 3}
+      propertyPath: am
+      value: 
+      objectReference: {fileID: 1400506626}
     - target: {fileID: 1682203309136837693, guid: 638824706680a1a4b875f37eff53e999, type: 3}
       propertyPath: loseObj
       value: 
@@ -2459,6 +2463,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: banana model
       objectReference: {fileID: 0}
+    - target: {fileID: 6974507775065225407, guid: c0406acd87fc1114499f8e3e0e88d309, type: 3}
+      propertyPath: m_TagString
+      value: Banana
+      objectReference: {fileID: 0}
     - target: {fileID: 7746681135492899333, guid: c0406acd87fc1114499f8e3e0e88d309, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -2473,7 +2481,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7746681135492899333, guid: c0406acd87fc1114499f8e3e0e88d309, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 29.58
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 7746681135492899333, guid: c0406acd87fc1114499f8e3e0e88d309, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2611,7 +2619,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1659572736
 Transform:
   m_ObjectHideFlags: 0
