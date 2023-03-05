@@ -34,4 +34,10 @@ public class AudioManager : MonoBehaviour
         rilla.SetActive(false);
         chill.SetActive(true);
     }
+
+    public void DestroyMusic()
+    {
+        Destroy(chill);
+        Destroy(rilla);
+    }
 }

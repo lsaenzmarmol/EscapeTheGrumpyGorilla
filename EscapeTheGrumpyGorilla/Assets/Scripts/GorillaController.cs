@@ -9,10 +9,16 @@ public class GorillaController : MonoBehaviour
     public AudioManager am;
     public GameObject playerObj, loseObj;
     public Transform[] protectPositions;
-    int posSpot, timer, spinTimer, DazedTimer;
+    int posSpot, timer, spinTimer, DazedTimer, spotTemp;
     public int playerThreshold, nanaThreshold;
-    float nanaDistance, playerDistance;
+    float nanaDistance, playerDistance, nanaTemp;
     public float normalSpeed = 3.5f, chaseSpeed = 7f;
+    
+    Animator anim;
+
+    GameObject nanaFinal;
+
+    
 
     public int spinDuration, dazedDuration;
 
@@ -24,11 +30,14 @@ public class GorillaController : MonoBehaviour
     {
         agent.speed = normalSpeed;
         rillaState = BehaviorState.Protect;
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        this.transform.LookAt(protectPositions[1]);
+        
         ComputeState();
         if(Input.GetKeyDown(KeyCode.K))
         {
@@ -38,15 +47,38 @@ public class GorillaController : MonoBehaviour
 
     public void ComputeState()
     {
+
+        
         //check distances
-        GameObject nanaPeel = GameObject.FindGameObjectWithTag("Banana");
-        if(nanaPeel!=null)
-            nanaDistance = Vector3.Distance(nanaPeel.transform.position, transform.position); 
+        nanaDistance = 100;
+        GameObject[] nanaPeels = GameObject.FindGameObjectsWithTag("Banana");
+        if(nanaPeels!=null)
+        {
+            foreach (GameObject nanaPeel in nanaPeels)
+            {
+                nanaTemp = Vector3.Distance(nanaPeel.transform.position, transform.position); 
+                if(nanaTemp < nanaDistance)
+                {
+                    nanaDistance = nanaTemp;
+                    nanaFinal = nanaPeel;
+                }
+            }
+            
+        }
+            
         if(playerObj != null)
             playerDistance = Vector3.Distance(playerObj.transform.position, transform.position);
         //check spin state
+        //Debug.Log(nanaDistance); 
+        GameObject keyObj = GameObject.FindGameObjectWithTag("Key");
+        //Debug.Log(keyObj);
+        if(keyObj==null)
+        {
+            rillaState = BehaviorState.Chase;
+        } 
         if(rillaState == BehaviorState.Spin)
         {
+            anim.SetTrigger("Spin");
             spinTimer++;
 
             if(spinTimer > spinDuration)
@@ -67,22 +99,23 @@ public class GorillaController : MonoBehaviour
             }
         }
 
-        
+
 
         //check the distance to the patrol object
-
+        
         if(rillaState == BehaviorState.Patrol)
         {
-            if(nanaPeel!=null)
-                agent.SetDestination(nanaPeel.transform.position);
+            if(nanaFinal!=null)
+                agent.SetDestination(nanaFinal.transform.position);
         }
-
+    
         if(rillaState == BehaviorState.Protect)
         {        
 
         agent.speed = normalSpeed;
         //other state checks   
         //check chase        
+      
         if(playerDistance < playerThreshold)
         {
             rillaState = BehaviorState.Chase;
@@ -114,6 +147,10 @@ public class GorillaController : MonoBehaviour
             }
             //chase player faster than normal
         }
+
+ 
+
+        
     }
 
     private void OnCollisionEnter(Collision other) {
@@ -137,7 +174,7 @@ public class GorillaController : MonoBehaviour
         {
             PauseMenu.GameOver();
             loseObj.SetActive(true);
-            am.TurnOffMusic();
+            am.DestroyMusic();
         }
     }
     private void ComputeProtect()
