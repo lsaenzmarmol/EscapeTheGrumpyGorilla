@@ -659,7 +659,7 @@ PrefabInstance:
       value: 'You Lose!
 
 
-        Press R to try again'
+        Reload the browser to try again.'
       objectReference: {fileID: 0}
     - target: {fileID: 4148556072369574006, guid: 5a89c0e78c3393f46b22a5337363a94d, type: 3}
       propertyPath: m_VerticalAlignment
@@ -6253,10 +6253,7 @@ PrefabInstance:
       value: 'You Won!
 
 
-        Thank You For Playing!
-
-
-        Press R to restart'
+        Thank You For Playing!'
       objectReference: {fileID: 0}
     - target: {fileID: 4148556072369574006, guid: 5a89c0e78c3393f46b22a5337363a94d, type: 3}
       propertyPath: m_VerticalAlignment
