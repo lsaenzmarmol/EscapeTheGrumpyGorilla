@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
   public CharacterController controller;
   
-  public float speed = 12f;
+  public float speed = 12f, normalSpeed, maxSpeed, speedDur;
   public bool hasBanana;
   public bool peel { get; private set; }
   public GameObject peeledHud, normalHud;
@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void SlowDown()
     {
-        speed = 12f;
+        speed = normalSpeed;
     }
     public void HideBanana(){
         normalHud.SetActive(false);
@@ -52,9 +52,9 @@ public class PlayerMovement : MonoBehaviour
         {
             normalHud.SetActive(false);
             peeledHud.SetActive(true);
-            speed = 24f;
+            speed = maxSpeed;
             hasBanana = false;
-            Invoke(nameof(SlowDown), 8f);
+            Invoke(nameof(SlowDown), speedDur);
             peel = true;
         }
 
