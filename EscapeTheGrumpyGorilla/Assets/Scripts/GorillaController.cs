@@ -7,12 +7,13 @@ public class GorillaController : MonoBehaviour
 {
     public NavMeshAgent agent;
     public AudioManager am;
-    public GameObject playerObj, loseObj;
+    public GameObject playerObj, loseObj, keyObj;
     public Transform[] protectPositions;
-    int posSpot, timer, spinTimer, DazedTimer;
+    int posSpot, timer, spinTimer, DazedTimer, tempDistance;
     public int playerThreshold, nanaThreshold;
     float nanaDistance, playerDistance;
     public float normalSpeed = 3.5f, chaseSpeed = 7f;
+    GameObject closestNana;
 
     public int spinDuration, dazedDuration;
 
@@ -38,10 +39,28 @@ public class GorillaController : MonoBehaviour
 
     public void ComputeState()
     {
+
+        if(keyObj == null)
+        {
+            rillaState = BehaviorState.Chase;
+        }
         //check distances
-        GameObject nanaPeel = GameObject.FindGameObjectWithTag("Banana");
-        if(nanaPeel!=null)
-            nanaDistance = Vector3.Distance(nanaPeel.transform.position, transform.position); 
+        GameObject[] nanaPeels = GameObject.FindGameObjectsWithTag("Banana");
+        float previous = 100;
+        if(nanaPeels!=null)
+        {
+            foreach(GameObject nanaPeel in nanaPeels)
+            {
+                nanaDistance = Vector3.Distance(nanaPeel.transform.position, transform.position);
+                if(nanaDistance < previous)
+                {
+                    closestNana = nanaPeel;
+                    previous = nanaDistance;
+                }
+                
+            }
+        }
+             
         if(playerObj != null)
             playerDistance = Vector3.Distance(playerObj.transform.position, transform.position);
         //check spin state
@@ -73,8 +92,8 @@ public class GorillaController : MonoBehaviour
 
         if(rillaState == BehaviorState.Patrol)
         {
-            if(nanaPeel!=null)
-                agent.SetDestination(nanaPeel.transform.position);
+            if(closestNana!=null)
+                agent.SetDestination(closestNana.transform.position);
         }
 
         if(rillaState == BehaviorState.Protect)
@@ -123,14 +142,14 @@ public class GorillaController : MonoBehaviour
             Debug.Log("GotPeeled");
             spinTimer = 0;
             rillaState = BehaviorState.Spin;
-            nanaDistance = 50;
+            nanaDistance = 100;
             Destroy(other.gameObject);
         }
         if(other.gameObject.tag == "Banana")
         {
             DazedTimer = 0;
             rillaState = BehaviorState.Dazed;
-            nanaDistance = 50;
+            nanaDistance = 100;
             Destroy(other.gameObject);
         }
         if(other.gameObject.tag == "Player" && !PauseMenu.gameOver)
