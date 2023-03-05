@@ -1730,7 +1730,7 @@ PrefabInstance:
     - target: {fileID: 8417361359032162954, guid: 638824706680a1a4b875f37eff53e999, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 0238307b99c7ba843bedeac23313631c, type: 2}
+      objectReference: {fileID: 2100000, guid: a08d462236b626549bcc9cdc5221d8db, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 638824706680a1a4b875f37eff53e999, type: 3}
 --- !u!4 &410695135 stripped
@@ -3786,24 +3786,6 @@ PrefabInstance:
       objectReference: {fileID: 527344166}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 638824706680a1a4b875f37eff53e999, type: 3}
---- !u!1 &1083258785 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5040003109620807711, guid: 16d3762e288d5db49aed3ff3b681d2c3, type: 3}
-  m_PrefabInstance: {fileID: 1708366056}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &1083258789
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1083258785}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 181.02057, y: 11.984887, z: 58.428505}
-  m_Center: {x: -61.296143, y: 0, z: 0}
 --- !u!4 &1087484104 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6800303167411955876, guid: 9ec9faf85daaca948a91d06ade9dadd2, type: 3}
@@ -6314,17 +6296,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4801355362016393450, guid: 16d3762e288d5db49aed3ff3b681d2c3, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8129268726657647412, guid: 16d3762e288d5db49aed3ff3b681d2c3, type: 3}
       propertyPath: m_Name
       value: key model
-      objectReference: {fileID: 0}
-    - target: {fileID: 8129268726657647412, guid: 16d3762e288d5db49aed3ff3b681d2c3, type: 3}
-      propertyPath: m_TagString
-      value: Key
       objectReference: {fileID: 0}
     - target: {fileID: 8906754995809900942, guid: 16d3762e288d5db49aed3ff3b681d2c3, type: 3}
       propertyPath: m_RootOrder
@@ -6721,33 +6695,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1709035017}
     m_Modifications:
-    - target: {fileID: 1272721587319897267, guid: c0406acd87fc1114499f8e3e0e88d309, type: 3}
-      propertyPath: m_Size.x
-      value: 181.85106
-      objectReference: {fileID: 0}
-    - target: {fileID: 1272721587319897267, guid: c0406acd87fc1114499f8e3e0e88d309, type: 3}
-      propertyPath: m_Size.y
-      value: 101.942894
-      objectReference: {fileID: 0}
-    - target: {fileID: 1272721587319897267, guid: c0406acd87fc1114499f8e3e0e88d309, type: 3}
-      propertyPath: m_Center.y
-      value: 6.870283
-      objectReference: {fileID: 0}
     - target: {fileID: 6974507775065225407, guid: c0406acd87fc1114499f8e3e0e88d309, type: 3}
       propertyPath: m_Name
       value: banana model (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6974507775065225407, guid: c0406acd87fc1114499f8e3e0e88d309, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6974507775065225407, guid: c0406acd87fc1114499f8e3e0e88d309, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6974507775065225407, guid: c0406acd87fc1114499f8e3e0e88d309, type: 3}
-      propertyPath: m_TagString
-      value: Banana
       objectReference: {fileID: 0}
     - target: {fileID: 7746681135492899333, guid: c0406acd87fc1114499f8e3e0e88d309, type: 3}
       propertyPath: m_RootOrder
