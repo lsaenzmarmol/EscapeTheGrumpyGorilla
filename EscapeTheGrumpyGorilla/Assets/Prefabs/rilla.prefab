@@ -147,7 +147,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a08d462236b626549bcc9cdc5221d8db, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -204,6 +204,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 543450652998072575}
+  - component: {fileID: 919132148791190086}
   m_Layer: 0
   m_Name: gorilla2
   m_TagString: Untagged
@@ -229,6 +230,26 @@ Transform:
   m_Father: {fileID: 1682203309136837670}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!95 &919132148791190086
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148791190085}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5b839baf6b645134caa8feec07710ecf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &930647953267506825
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,6 +386,7 @@ MonoBehaviour:
   am: {fileID: 0}
   playerObj: {fileID: 0}
   loseObj: {fileID: 0}
+  keyObj: {fileID: 0}
   protectPositions:
   - {fileID: 0}
   - {fileID: 0}
@@ -373,8 +395,9 @@ MonoBehaviour:
   nanaThreshold: 5
   normalSpeed: 5
   chaseSpeed: 8
-  spinDuration: 500
-  dazedDuration: 1000
+  anim: {fileID: 919132148791190086}
+  spinDuration: 1200
+  dazedDuration: 3000
 --- !u!65 &1682203309136837691
 BoxCollider:
   m_ObjectHideFlags: 0

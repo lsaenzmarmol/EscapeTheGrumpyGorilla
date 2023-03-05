@@ -14,6 +14,7 @@ public class GorillaController : MonoBehaviour
     float nanaDistance, playerDistance;
     public float normalSpeed = 3.5f, chaseSpeed = 7f;
     GameObject closestNana;
+    public Animator anim;
 
     public int spinDuration, dazedDuration;
 
@@ -138,6 +139,7 @@ public class GorillaController : MonoBehaviour
     private void OnCollisionEnter(Collision other) {
         if(other.gameObject.tag == "Peeled")
         {
+            anim.SetTrigger("Spin");
             am.PlaySlip();
             Debug.Log("GotPeeled");
             spinTimer = 0;
