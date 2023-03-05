@@ -11,7 +11,7 @@ public class Banana : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
-            if(other.gameObject.tag == "Player")
+            if(other.gameObject.tag == "Player" && !pm.hasBanana)
             {
                 pm.GetBanana();
                 Destroy(this.gameObject);
@@ -19,7 +19,7 @@ public class Banana : MonoBehaviour
             Debug.Log("Banana");
     }
     private void OnCollisionEnter(Collision other) {
-            if(other.gameObject.tag == "Player")
+            if(other.gameObject.tag == "Player" && !pm.hasBanana)
             {
                 pm.GetBanana();
                 Destroy(this.gameObject);

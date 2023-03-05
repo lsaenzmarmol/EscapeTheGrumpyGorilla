@@ -18,7 +18,7 @@ public class GorillaController : MonoBehaviour
 
     enum BehaviorState {Patrol, Spin, Protect, Chase, Dazed};
     BehaviorState rillaState;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -137,6 +137,7 @@ public class GorillaController : MonoBehaviour
         {
             PauseMenu.GameOver();
             loseObj.SetActive(true);
+            am.TurnOffMusic();
         }
     }
     private void ComputeProtect()

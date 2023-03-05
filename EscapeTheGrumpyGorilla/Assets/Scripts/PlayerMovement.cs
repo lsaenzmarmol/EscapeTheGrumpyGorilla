@@ -12,21 +12,29 @@ public class PlayerMovement : MonoBehaviour
   public GameObject peeledHud, normalHud;
   public LayerMask gorillaLayer;
   public GameObject doorObj, winObj;
+  public Rigidbody rb;
+  public AudioManager am;
 
     // Update is called once per frame
     void Update()
     {
         
 
-        
+        float x = Input.GetAxis ("Horizontal");
+        float z = Input.GetAxis ("Vertical");
         if(!PauseMenu.isPaused && !PauseMenu.gameOver)
-        {
-            
+        {  
             CheckInputs();
-            float x = Input.GetAxis ("Horizontal");
-            float z = Input.GetAxis ("Vertical");
+            
             Vector3 move = transform.right * x + transform.forward * z;
             controller.Move(move * speed * Time.deltaTime);
+        }
+        if(PauseMenu.gameOver)
+        {
+            am.TurnOffMusic();
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+
         }
             
 
