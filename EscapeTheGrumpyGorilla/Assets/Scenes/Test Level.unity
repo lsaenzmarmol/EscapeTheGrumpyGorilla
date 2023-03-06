@@ -659,7 +659,7 @@ PrefabInstance:
       value: 'You Lose!
 
 
-        Reload the browser to try again.'
+        Press R to Quit'
       objectReference: {fileID: 0}
     - target: {fileID: 4148556072369574006, guid: 5a89c0e78c3393f46b22a5337363a94d, type: 3}
       propertyPath: m_VerticalAlignment
@@ -3773,6 +3773,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 620098415}
     - target: {fileID: 1682203309136837693, guid: 638824706680a1a4b875f37eff53e999, type: 3}
+      propertyPath: playerThreshold
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 1682203309136837693, guid: 638824706680a1a4b875f37eff53e999, type: 3}
       propertyPath: protectPositions.Array.data[0]
       value: 
       objectReference: {fileID: 153986124}
@@ -6216,7 +6220,10 @@ PrefabInstance:
       value: 'You Won!
 
 
-        Thank You For Playing!'
+        Thank You For Playing!
+
+
+        Press R to Quit'
       objectReference: {fileID: 0}
     - target: {fileID: 4148556072369574006, guid: 5a89c0e78c3393f46b22a5337363a94d, type: 3}
       propertyPath: m_VerticalAlignment
